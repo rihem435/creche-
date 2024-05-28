@@ -13,6 +13,7 @@ class AppApi {
 
   static const String resetPasswordUrl = "${baseUrl}auth/resetpassword";
   static const String listEnfantsUrl = "${baseUrl}children/";
+  static const String listEnfantsUrlByE = "${baseUrl}children/findB/";
 
   static const String categoriesUrl = "${baseUrl}categories/";
   static const String categoriesByIdUrl = "${baseUrl}categories/byid/";

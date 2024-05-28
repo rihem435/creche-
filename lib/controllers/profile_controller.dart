@@ -5,6 +5,7 @@ import 'package:creche/models/user_model.dart';
 import 'package:creche/screen/children/children_screen_parent.dart';
 import 'package:creche/screen/parents/list_parents_screen.dart';
 import 'package:creche/screen/profile/screen_login.dart';
+import 'package:creche/screen/profile/screen_login_parent.dart';
 import 'package:creche/screen/screen_home.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
@@ -293,7 +294,9 @@ class ProfileController {
         emailController.clear();
         passWordController.clear();
         Navigator.of(context).push(MaterialPageRoute(
-          builder: (context) => const ScreenLogin(),
+          builder: (context) => InfoStorage.readRole() == "Establishment"
+              ? const ScreenLogin()
+              : const ScreenLoginParent(),
         ));
       }
     } catch (error) {

@@ -2,6 +2,7 @@ import 'package:creche/controllers/home_controller.dart';
 import 'package:creche/controllers/profile_controller.dart';
 import 'package:creche/core/helperes/app_validators.dart';
 import 'package:creche/core/widgets/custom_input_texr.dart';
+import 'package:creche/screen/acceuil_screen.dart';
 import 'package:creche/screen/profile/screen_register.dart';
 import 'package:creche/screen/profile/screen_reset_password.dart';
 import 'package:flutter/gestures.dart';
@@ -30,10 +31,20 @@ class _ScreenLoginState extends State<ScreenLogin> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-         appBar: AppBar(
+        appBar: AppBar(
           backgroundColor: Colors.brown[50],
           title: const Text(
             "Login",
+          ),
+          leading: IconButton(
+            onPressed: () {
+              Navigator.of(context).push(MaterialPageRoute(
+                builder: (context) => const AcceuilScreen(),
+              ));
+            },
+            icon: const Icon(
+              Icons.arrow_back,
+            ),
           ),
         ),
         body: Center(
@@ -123,9 +134,11 @@ class _ScreenLoginState extends State<ScreenLogin> {
                   ),
                   ElevatedButton(
                       style: const ButtonStyle(
-                          backgroundColor: MaterialStatePropertyAll(Colors.brown),
-                          padding: MaterialStatePropertyAll(EdgeInsets.symmetric(
-                              horizontal: 28, vertical: 15))),
+                          backgroundColor:
+                              MaterialStatePropertyAll(Colors.brown),
+                          padding: MaterialStatePropertyAll(
+                              EdgeInsets.symmetric(
+                                  horizontal: 28, vertical: 15))),
                       onPressed: () async {
                         // if (keyForm.currentState!.validate()) {
                         profileController!.login(context);

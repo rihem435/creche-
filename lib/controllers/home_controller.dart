@@ -22,7 +22,8 @@ class HomeController {
   bool testData = false;
   Future<ListEnfantsModel?> getListEnfants(BuildContext context) async {
     try {
-      Response response = await dio.get(AppApi.listEnfantsUrl);
+      Response response =
+          await dio.get("${AppApi.listEnfantsUrlByE}${InfoStorage.readId()}");
 
       print('value ===================> $response');
       if (response.statusCode == 200) {

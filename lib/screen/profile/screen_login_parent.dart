@@ -2,6 +2,8 @@ import 'package:creche/controllers/home_controller.dart';
 import 'package:creche/controllers/profile_controller.dart';
 import 'package:creche/core/helperes/app_validators.dart';
 import 'package:creche/core/widgets/custom_input_texr.dart';
+import 'package:creche/screen/acceuil_screen.dart';
+import 'package:creche/screen/get_started_screen.dart';
 import 'package:creche/screen/profile/screen_reset_password.dart';
 import 'package:flutter/material.dart';
 
@@ -29,6 +31,16 @@ class _ScreenLoginParentState extends State<ScreenLoginParent> {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
+          leading: IconButton(
+            onPressed: () {
+              Navigator.of(context).push(MaterialPageRoute(
+                builder: (context) => const AcceuilScreen(),
+              ));
+            },
+            icon: const Icon(
+              Icons.arrow_back,
+            ),
+          ),
           backgroundColor: Colors.brown[50],
           title: const Text(
             "Login",
